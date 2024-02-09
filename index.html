@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Add custom styles here if needed */
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+  <div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl mb-6 text-center">Fitness Tracker</h2>
+    <div id="exerciseForm" class="mb-4">
+      <h3 class="text-lg mb-2">Log Exercise</h3>
+      <div>
+        <label for="exerciseType" class="block mb-1">Exercise Type</label>
+        <input type="text" id="exerciseType" name="exerciseType" class="w-full border rounded-md px-3 py-2 mb-2" placeholder="Enter exercise type">
+      </div>
+      <div>
+        <label for="duration" class="block mb-1">Duration (minutes)</label>
+        <input type="number" id="duration" name="duration" class="w-full border rounded-md px-3 py-2 mb-2" placeholder="Enter duration">
+      </div>
+      <div>
+        <label for="caloriesBurned" class="block mb-1">Calories Burned</label>
+        <input type="number" id="caloriesBurned" name="caloriesBurned" class="w-full border rounded-md px-3 py-2 mb-2" placeholder="Enter calories burned">
+      </div>
+      <button onclick="logExercise()" class="w-full bg-blue-500 text-white rounded-md px-4 py-2">Log Exercise</button>
+    </div>
+    <div id="goalForm">
+      <h3 class="text-lg mb-2">Set Goal</h3>
+      <div>
+        <label for="goalType" class="block mb-1">Goal Type</label>
+        <input type="text" id="goalType" name="goalType" class="w-full border rounded-md px-3 py-2 mb-2" placeholder="Enter goal type">
+      </div>
+      <div>
+        <label for="target" class="block mb-1">Target</label>
+        <input type="number" id="target" name="target" class="w-full border rounded-md px-3 py-2 mb-2" placeholder="Enter target">
+      </div>
+      <button onclick="setGoal()" class="w-full bg-blue-500 text-white rounded-md px-4 py-2">Set Goal</button>
+    </div>
+    <div id="progressVisualization" class="mt-8">
+      <h3 class="text-lg mb-2">Progress Visualization</h3>
+      <!-- Add progress visualization charts/graphs here -->
+    </div>
+  </div>
+
+  <script>
+    // Mock data for demonstration
+    let exercises = [];
+    let goals = [];
+
+    // Function to log exercise
+    function logExercise() {
+      const exerciseType = document.getElementById('exerciseType').value;
+      const duration = document.getElementById('duration').value;
+      const caloriesBurned = document.getElementById('caloriesBurned').value;
+
+      // Validation (you can add more validation logic)
+      if (exerciseType.trim() === '' || duration.trim() === '' || caloriesBurned.trim() === '') {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      // Log exercise
+      exercises.push({ exerciseType, duration, caloriesBurned });
+      console.log('Exercise logged:', exercises);
+
+      // Clear form fields
+      document.getElementById('exerciseType').value = '';
+      document.getElementById('duration').value = '';
+      document.getElementById('caloriesBurned').value = '';
+
+      // Update progress visualization (you can implement this)
+    }
+
+    // Function to set goal
+    function setGoal() {
+      const goalType = document.getElementById('goalType').value;
+      const target = document.getElementById('target').value;
+
+      // Validation (you can add more validation logic)
+      if (goalType.trim() === '' || target.trim() === '') {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      // Set goal
+      goals.push({ goalType, target });
+      console.log('Goal set:', goals);
+
+      // Clear form fields
+      document.getElementById('goalType').value = '';
+      document.getElementById('target').value = '';
+
+      // Update progress visualization (you can implement this)
+    }
+  </script>
+</body>
+</html>
